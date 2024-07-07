@@ -21,9 +21,12 @@ root.render(
     duration: 5000,
     style: {
       background: 'rgb(255,177,169)',
-      color: '#fff',
+      color: 'black',
       width:"400px",
-      height:"200px"
+      height:"200px",
+      fontSize:"30px",
+      fontWeight:"bold",
+      fontFamily:"cursive"
     },
 
     // Default options for specific types
