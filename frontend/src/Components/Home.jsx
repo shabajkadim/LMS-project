@@ -30,7 +30,7 @@ const Home = () => {
     <div className='border-2 border-color: inherit'>
       <h1>Home</h1>
       <div>
-                <select>
+                 <select> 
                   <option value="" disabled selected>
                     Select Name
                   </option>
@@ -39,8 +39,10 @@ const Home = () => {
                       {instructor.firstname}
                     </option>
                   ))}
-                </select>
+                </select> 
+              
               </div>
+
     </div>
   );
 };

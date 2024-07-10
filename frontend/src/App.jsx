@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import Register from './Components/pages/Register';
 import { Navbar } from './Components/Navbar/Navabr';
 import Login from './Components/pages/Login';
+import AddCourse from './Components/pages/AddCourse';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='register' element={<Register/>} />
         <Route path='login' element={<Login/>} />
+        <Route path='addcourse' element={<AddCourse/>} />
       </Routes>
       
     </div>
