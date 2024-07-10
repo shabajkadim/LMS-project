@@ -1,59 +1,119 @@
-// import React, { useState } from 'react'
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import toast from 'react-hot-toast';
 
 // const AddCourse = () => {
-//     const [addcourse,setAddCourse]=useState([])
+//     const [courseData, setCourseData] = useState({
+//         courseName: '',
+//         level: '',
+//         description: '',
+//         image: ''
+//     });
+// console.log(courseData);
+// // console.log(`${process.env.REACT_APP_SERVER_DOMAIN},12334`);
 
-//   return (
-//     <div>
-//       AddCourse
-//       <form>
-//         <input type='text'  placeholder='Course Name..' /><br/>
-//         <select >
-//             <option >Selected Level</option>
-//             <option>Biggener</option>
-//             <option>Intermidate</option>
-//             <option>Advance</option>
-//         </select><br/>
-//         <input type='texr' placeholder='Description'  /><br/>
+//     const handleChange = (e) => {
+//         setCourseData({...courseData,[e.target.name]:e.target.value})
+//     };
 
-//         <input type='file' placeholder='image' /><br/>
-//         <input type='submit' value="Add-Course" />
-//       </form>
-//     </div>
-//   )
+//     const handleSubmit = async (e) => {
+//         e.preventDefault();
+//         try {
+//             if (courseData.courseName && courseData.level && courseData.description && courseData.image) {
+                
+//                 // const response={data:{success:true, message:"Couse added successsfully"}}
+//                 // const response=await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/api/v1/admin/add-course`,{courseData})
+//                 const response=await axios.post('http://localhost:8000/api/v1/admin/add-course',{courseData})
+//                 if (response.data.success) {
+//                     toast(response.data.message);
+                   
+//                     setCourseData({
+//                         courseName: '',
+//                         level: '',
+//                         description: '',
+//                         image: ''
+//                     });
+//                 }
+//             } else {
+//                 toast('All fields are required');
+//             }
+//         } catch (error) {
+//             console.log(error);
+//             toast('An error occurred');
+//         }
+//     };
+
+//     return (
+//         <div>
+//             <p>Addcouse</p><br/><br/>
+//             <form onSubmit={handleSubmit}>
+//                 <input 
+//                     type='text' 
+//                     name='courseName' 
+//                     value={courseData.courseName} 
+//                     onChange={handleChange} 
+//                     placeholder='Course Name..' 
+//                 /><br/><br/>
+//                 <select name='level' value={courseData.level} onChange={handleChange}>
+//                     <option value=''>Select Level</option>
+//                     <option value='Beginner'>Beginner</option>
+//                     <option value='Intermediate'>Intermediate</option>
+//                     <option value='Advanced'>Advanced</option>
+//                 </select><br/><br/>
+//                 <input 
+//                     type='text' 
+//                     name='description' 
+//                     value={courseData.description} 
+//                     onChange={handleChange} 
+//                     placeholder='Description' 
+//                 /><br/><br/>
+//                 <input 
+//                     type='url' 
+//                     name='image' 
+//                     value={courseData.image}
+//                     onChange={handleChange} 
+//                     placeholder='Image URL'
+//                 /><br/><br/>
+//                 <input type='submit' value='Add Course' />
+                
+//             </form>
+
+            
+
+//         </div>
+        
+//     );
 // }
 
-// export default AddCourse
+// export default AddCourse;
 
 import React, { useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const AddCourse = () => {
     const [courseData, setCourseData] = useState({
-        name: '',
+        courseName: '',
         level: '',
         description: '',
         image: ''
     });
-console.log(courseData);
-
+    
     const handleChange = (e) => {
-        setCourseData({...courseData,[e.target.name]:e.target.value})
+        setCourseData({...courseData, [e.target.name]: e.target.value});
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (courseData.name && courseData.level && courseData.description && courseData.image) {
-                
-                const response={data:{success:true, message:"Couse added successsfully"}}
-
+            if (courseData.courseName && courseData.level && courseData.description && courseData.image) {
+                // const response={data:{success:true, message:"Couse added successsfully"}}
+                   const response=await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/api/v1/admin/add-course`,{courseData})
+                // const response = await axios.post('http://localhost:8000/api/v1/admin/add-course', { courseData });
                 if (response.data.success) {
                     toast(response.data.message);
-                   
                     setCourseData({
-                        name: '',
+                        courseName: '',
                         level: '',
                         description: '',
                         image: ''
@@ -69,46 +129,63 @@ console.log(courseData);
     };
 
     return (
-        <div>
-            <p>Addcouse</p><br/><br/>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type='text' 
-                    name='name' 
-                    value={courseData.name} 
-                    onChange={handleChange} 
-                    placeholder='Course Name..' 
-                /><br/><br/>
-                <select name='level' value={courseData.level} onChange={handleChange}>
-                    <option value=''>Select Level</option>
-                    <option value='Beginner'>Beginner</option>
-                    <option value='Intermediate'>Intermediate</option>
-                    <option value='Advanced'>Advanced</option>
-                </select><br/><br/>
-                <input 
-                    type='text' 
-                    name='description' 
-                    value={courseData.description} 
-                    onChange={handleChange} 
-                    placeholder='Description' 
-                /><br/><br/>
-                <input 
-                    type='url' 
-                    name='image' 
-                    value={courseData.image}
-                    onChange={handleChange} 
-                    placeholder='Image URL'
-                /><br/><br/>
-                <input type='submit' value='Add Course' />
-                
-            </form>
+        <div className="bg-blue-100 min-h-screen flex items-center justify-center">
+            <div className="w-full max-w-sm p-6 bg-white shadow-md rounded-lg">
+                <h2 className="text-2xl font-bold text-blue-700 mb-4">Add Course</h2>
+                <form onSubmit={handleSubmit}>
+                    <label className="block text-blue-700 font-bold mb-2">Course Name:</label>
+                    <input 
+                        type='text' 
+                        name='courseName' 
+                        value={courseData.courseName} 
+                        onChange={handleChange} 
+                        className="w-full px-3 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        placeholder='Course Name..' 
+                    />
 
-            
+                    <label className="block text-blue-700 font-bold mb-2">Level:</label>
+                    <select 
+                        name='level' 
+                        value={courseData.level} 
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    >
+                        <option value=''>Select Level</option>
+                        <option value='Beginner'>Beginner</option>
+                        <option value='Intermediate'>Intermediate</option>
+                        <option value='Advanced'>Advanced</option>
+                    </select>
 
+                    <label className="block text-blue-700 font-bold mb-2">Description:</label>
+                    <input 
+                        type='text' 
+                        name='description' 
+                        value={courseData.description} 
+                        onChange={handleChange} 
+                        className="w-full px-3 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        placeholder='Description' 
+                    />
+
+                    <label className="block text-blue-700 font-bold mb-2">Image URL:</label>
+                    <input 
+                        type='url' 
+                        name='image' 
+                        value={courseData.image}
+                        onChange={handleChange} 
+                        className="w-full px-3 py-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        placeholder='Image URL'
+                    />
+
+                    <button
+                        type='submit'
+                        className="w-full bg-yellow-500 text-blue-700 font-bold py-2 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    >
+                        Add Course
+                    </button>
+                </form>
+            </div>
         </div>
-        
     );
 }
 
 export default AddCourse;
-
