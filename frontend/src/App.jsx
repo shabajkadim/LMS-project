@@ -9,6 +9,7 @@ import AddCourse from './Components/pages/AddCourse';
 import GetCourse from './Components/pages/GetCourse';
 import Admin from './Components/pages/Admin';
 import Instructor from './Components/pages/Instructor';
+import ScheduleTime from './Components/pages/ScheduleTime';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='getcourse' element={<GetCourse/>} />
         <Route path='admin' element={<Admin/>} />
         <Route path='instructor' element={<Instructor/>} />
+        <Route path='scheduleTime' element={<ScheduleTime/>} />
       </Routes>
       
     </div>

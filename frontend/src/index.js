@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Toaster} from 'react-hot-toast'
 import  {BrowserRouter}  from 'react-router-dom';
+import AuthContextComponent from './Components/context/authContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -39,7 +40,9 @@ root.render(
     },
   }}
 />
+  <AuthContextComponent>
     <App />
+  </AuthContextComponent>
   </BrowserRouter>
 );
 

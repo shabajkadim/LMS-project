@@ -17,13 +17,13 @@ const Register = () => {
     try {
       if (data.firstname  && data.email && data.password && data.confirmPassword) {
         if (data.password === data.confirmPassword) {
-          const response={data:{success:true , message:"Sign up Successfull" , token:"kjsahgdfkjj"}}
-          // const response = await axios.post('http://localhost:8000/api/v1/auth/register', { data });
+          // const response={data:{success:true , message:"Sign up Successfull" , token:"kjsahgdfkjj"}}
+          const response = await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/api/v1/auth/register`,{data});
           if (response.data.success === true) {
             toast(response.data.message);
             setData({ firstname: "",  email: "", password: "", confirmPassword: "" });
             localStorage.setItem("my-tokendata", JSON.stringify(response.data.token));
-            // router('/login');
+            router('/login');
           }
         } else {
           toast("Password and confirm password do not match");

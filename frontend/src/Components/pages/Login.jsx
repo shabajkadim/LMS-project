@@ -4,12 +4,12 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-// import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '../context/authContext';
 
 const Login = () => {
   const router = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  // const { LOGIN } = useContext(AuthContext);
+  const { LOGIN } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
@@ -24,10 +24,16 @@ const Login = () => {
         if (response.data.success === true) {
           localStorage.setItem("token", JSON.stringify(response.data.token));
           localStorage.setItem("user", JSON.stringify(response.data.user));  // Save user data to localStorage
-          // LOGIN(response.data.user);
+          LOGIN(response.data.user);
           toast(response.data.message);
           setLoginData({ email: "", password: "" });
-          router('/');
+          // router('/');
+
+          if (loginData.email === `${process.env.REACT_APP_ADMIN_GMAIL}`) {
+            router('/admin');
+          } else {
+            router('/');
+          }
         }
       } else {
         toast("All fields are required");

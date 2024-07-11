@@ -5,10 +5,10 @@ import jwt from 'jsonwebtoken';
 
 export const Register = async (req, res) => {
     try {
-        // const { firstname, lastname, email, password, confirmPassword } = req.body;
-        const { firstname, lastname, email, password, confirmPassword } = req.body.data;
+        // const { firstname,  email, password, confirmPassword } = req.body;
+        const { firstname,  email, password, confirmPassword } = req.body.data;
 
-        if (!firstname || !lastname || !email || !password || !confirmPassword) {
+        if (!firstname || !email || !password || !confirmPassword) {
             return res.status(400).json({ success: false, message: "All fields are required" });
         }
 
@@ -30,7 +30,6 @@ export const Register = async (req, res) => {
 
         const user = new userSchema({
             firstname: firstname,
-            lastname: lastname,
             email: email,
             password: hashPassword
         });
@@ -64,7 +63,7 @@ export const Login = async (req, res) => {
         }
 
         const token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-        console.log(token, "token");
+        // console.log(token, "token");
 
         return res.status(200).json({ success: true, message: "Login successful", token: token , user:{userId:user._id, firstname:user.firstname, email:user.email}});
     } catch (error) {
@@ -111,7 +110,7 @@ export const getCurrentUser=async(req,res)=>{
 export const GetAllUser = async (req, res) => {
     try {
         const users = await userSchema.find({}, 'firstname'); // Select only 'firstName' field
-        console.log(users, "users");
+        // console.log(users, "users");
         res.status(200).json({ success: true, user: users });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });

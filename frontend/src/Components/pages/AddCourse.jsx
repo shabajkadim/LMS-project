@@ -90,6 +90,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddCourse = () => {
     const [courseData, setCourseData] = useState({
@@ -98,6 +99,8 @@ const AddCourse = () => {
         description: '',
         image: ''
     });
+
+    const router=useNavigate()
     
     const handleChange = (e) => {
         setCourseData({...courseData, [e.target.name]: e.target.value});
@@ -118,6 +121,7 @@ const AddCourse = () => {
                         description: '',
                         image: ''
                     });
+                    router('/getcourse')
                 }
             } else {
                 toast('All fields are required');
