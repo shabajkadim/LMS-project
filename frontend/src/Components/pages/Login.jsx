@@ -20,20 +20,16 @@ const Login = () => {
     try {
       if (loginData.email && loginData.password) {
         // const response={data:{success:true , message:"Sign up Successfull" , token:"kjsahgdfkjj"}}
-        const response = await axios.post('http://localhost:8000/api/v1/auth/login', { loginData });
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/api/v1/auth/login` ,{ loginData });
         if (response.data.success === true) {
           localStorage.setItem("token", JSON.stringify(response.data.token));
           localStorage.setItem("user", JSON.stringify(response.data.user));  // Save user data to localStorage
           LOGIN(response.data.user);
           toast(response.data.message);
           setLoginData({ email: "", password: "" });
-          // router('/');
+          router('/');
 
-          if (loginData.email === `${process.env.REACT_APP_ADMIN_GMAIL}`) {
-            router('/admin');
-          } else {
-            router('/');
-          }
+          
         }
       } else {
         toast("All fields are required");

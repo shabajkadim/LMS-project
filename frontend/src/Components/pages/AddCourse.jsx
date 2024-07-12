@@ -1,92 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import toast from 'react-hot-toast';
-
-// const AddCourse = () => {
-//     const [courseData, setCourseData] = useState({
-//         courseName: '',
-//         level: '',
-//         description: '',
-//         image: ''
-//     });
-// console.log(courseData);
-// // console.log(`${process.env.REACT_APP_SERVER_DOMAIN},12334`);
-
-//     const handleChange = (e) => {
-//         setCourseData({...courseData,[e.target.name]:e.target.value})
-//     };
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         try {
-//             if (courseData.courseName && courseData.level && courseData.description && courseData.image) {
-                
-//                 // const response={data:{success:true, message:"Couse added successsfully"}}
-//                 // const response=await axios.post(`${process.env.REACT_APP_SERVER_DOMAIN}/api/v1/admin/add-course`,{courseData})
-//                 const response=await axios.post('http://localhost:8000/api/v1/admin/add-course',{courseData})
-//                 if (response.data.success) {
-//                     toast(response.data.message);
-                   
-//                     setCourseData({
-//                         courseName: '',
-//                         level: '',
-//                         description: '',
-//                         image: ''
-//                     });
-//                 }
-//             } else {
-//                 toast('All fields are required');
-//             }
-//         } catch (error) {
-//             console.log(error);
-//             toast('An error occurred');
-//         }
-//     };
-
-//     return (
-//         <div>
-//             <p>Addcouse</p><br/><br/>
-//             <form onSubmit={handleSubmit}>
-//                 <input 
-//                     type='text' 
-//                     name='courseName' 
-//                     value={courseData.courseName} 
-//                     onChange={handleChange} 
-//                     placeholder='Course Name..' 
-//                 /><br/><br/>
-//                 <select name='level' value={courseData.level} onChange={handleChange}>
-//                     <option value=''>Select Level</option>
-//                     <option value='Beginner'>Beginner</option>
-//                     <option value='Intermediate'>Intermediate</option>
-//                     <option value='Advanced'>Advanced</option>
-//                 </select><br/><br/>
-//                 <input 
-//                     type='text' 
-//                     name='description' 
-//                     value={courseData.description} 
-//                     onChange={handleChange} 
-//                     placeholder='Description' 
-//                 /><br/><br/>
-//                 <input 
-//                     type='url' 
-//                     name='image' 
-//                     value={courseData.image}
-//                     onChange={handleChange} 
-//                     placeholder='Image URL'
-//                 /><br/><br/>
-//                 <input type='submit' value='Add Course' />
-                
-//             </form>
-
-            
-
-//         </div>
-        
-//     );
-// }
-
-// export default AddCourse;
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -134,9 +45,13 @@ const AddCourse = () => {
 
     return (
         <div className="bg-blue-100 min-h-screen flex items-center justify-center">
-            <div className="w-full max-w-sm p-6 bg-white shadow-md rounded-lg">
+            <div className="w-full max-w-sm p-6 bg-white shadow-md rounded-lg mt-10">
                 <h2 className="text-2xl font-bold text-blue-700 mb-4">Add Course</h2>
+                
+                <div onClick={()=>router('/admin')} className='cursor-pointer text-blue-800 border-2 border-red-500 mt-4 mb-4 rounded-md text-center w-20 font-bold'>Go back</div>
+                
                 <form onSubmit={handleSubmit}>
+                    
                     <label className="block text-blue-700 font-bold mb-2">Course Name:</label>
                     <input 
                         type='text' 

@@ -5,6 +5,9 @@ import mongoose  from 'mongoose'
 import AllRoutes from './Router/index.js'
 
 const app=express()
+const port=process.env.PORT 
+
+// console.log(port,"port");
 app.use(cors())
 app.use(express.json())
 dotenv.config()
@@ -21,6 +24,6 @@ mongoose.connect(process.env.DATABASE_URL).then(
       console.log("Database connected..");
     }
   );
-app.listen(8000,()=>{
+app.listen(port,()=>{ 
     console.log("port running 8000");
 })

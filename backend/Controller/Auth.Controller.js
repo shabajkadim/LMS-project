@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import validator from "validator";
 import jwt from 'jsonwebtoken';
 
+
 export const Register = async (req, res) => {
     try {
         // const { firstname,  email, password, confirmPassword } = req.body;
@@ -95,16 +96,6 @@ export const getCurrentUser=async(req,res)=>{
     }
 }
 
-// export const GetAllUser=async(req,res)=>{
-//     try{
-//         // const user=await userSchema.find({})
-//         const user =await userSchema.find({},["firstname","email"])
-//         console.log(user,);
-//         res.status(200).json({sucess:true,user:user })
-//     }catch(error){
-//         res.status(500).json({success:false,error:error})
-//     }
-// }
 
 
 export const GetAllUser = async (req, res) => {
