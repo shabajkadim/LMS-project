@@ -21,8 +21,8 @@ root.render(
     className: '',
     duration: 5000,
     style: {
-      background: 'rgb(255,177,169)',
-      color: 'black',
+      background: 'rgb(29, 78, 216)', 
+      color: 'white', 
       width:"400px",
       height:"200px",
       fontSize:"30px",
