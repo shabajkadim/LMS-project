@@ -10,6 +10,7 @@ import GetCourse from './Components/pages/GetCourse';
 import Admin from './Components/pages/Admin';
 import Instructor from './Components/pages/Instructor';
 import ScheduleTime from './Components/pages/ScheduleTime';
+import { Footer } from './Components/footer/Footer';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path='instructor' element={<Instructor/>} />
         <Route path='scheduleTime' element={<ScheduleTime/>} />
       </Routes>
-      
+      <Footer />
     </div>
   );
 }

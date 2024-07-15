@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import loadingimg from './../project-image/loadingimg.jpeg'
 
 const ScheduleTime = () => {
   const [time, setTime] = useState([]);
@@ -24,10 +25,10 @@ const ScheduleTime = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center mt-16 p-4">
-      <h1 className="text-4xl font-bold mb-8">Schedule Time</h1>
+    <div className=" bg-gray-300 text-white flex flex-col items-center mt-16 p-4">
+      <h1 className="text-4xl font-bold text-blue-700 mb-8">Schedule Time</h1>
       {time?.length ? (
-        <div className="w-full max-w-6xl grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="w-full max-w-6xl mb-24 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {time.map((element, index) => (
             <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-md">
               <div className="mb-2">
@@ -46,10 +47,10 @@ const ScheduleTime = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mb-28">
           <p className="text-white">Loading courses...</p>
           <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2KkMDy6WNxbAFLBcpdrRJZP1nwDwr9nvmTw&s'
+            src={loadingimg}
             alt='Loading'
             className="w-24 h-24 mt-4"
           />
