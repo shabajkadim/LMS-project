@@ -44,7 +44,7 @@ const Home = () => {
                     )
                   })}
                 </div>):
-              (<div className='w-96 m-auto'><img src={loadingimg} alt='loader' /></div>)}
+              (<div className='w-96 m-auto '><img src={loadingimg} alt='loader' /></div>)}
             </div>
             
             
@@ -64,7 +64,7 @@ const Home = () => {
                     ))}
                 </div>
             ) : (
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col  mt-28 items-center">
                     <p className="text-white">Loading courses...</p>
                     <img src={loadingimg} alt='loadingimg' className="w-24 h-24 mt-4" />
                 </div>
