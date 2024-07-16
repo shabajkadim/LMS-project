@@ -11,12 +11,15 @@ import Admin from './Components/pages/Admin';
 import Instructor from './Components/pages/Instructor';
 import ScheduleTime from './Components/pages/ScheduleTime';
 import { Footer } from './Components/footer/Footer';
+import Aboute from './Components/pages/Aboute';
+import WrongPage from './Components/pages/WrongPage';
 
 function App() {
   return (
     <div >
       <Navbar/>
       <Routes>
+        <Route path='*' element={<WrongPage/>} />
         <Route path='/' element={<Home/>} />
         <Route path='register' element={<Register/>} />
         <Route path='login' element={<Login/>} />
@@ -25,6 +28,7 @@ function App() {
         <Route path='admin' element={<Admin/>} />
         <Route path='instructor' element={<Instructor/>} />
         <Route path='scheduleTime' element={<ScheduleTime/>} />
+        <Route path='aboute' element={<Aboute/>} />
       </Routes>
       <Footer />
     </div>

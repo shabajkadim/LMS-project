@@ -7,7 +7,6 @@ export const Footer=()=>{
        
        <div className="flex flex-wrap  justify-center gap-3 text-xl w-full m-auto font-medium text-slate-200">
         <p className="cursor-pointer">Home</p>
-        <p className="cursor-pointer">Products</p>
         <p>Services</p>
         <p>Media</p>
         <p>Gallery</p>

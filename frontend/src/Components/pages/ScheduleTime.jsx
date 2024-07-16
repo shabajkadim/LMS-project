@@ -47,7 +47,7 @@ const ScheduleTime = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center mb-28">
+        <div className="flex flex-col items-center mb-32 md:mb-40">
           <p className="text-white">Loading courses...</p>
           <img
             src={loadingimg}
