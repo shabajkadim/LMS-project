@@ -26,7 +26,7 @@ export const Navbar = (isActive) => {
       toast("Please login first")
       setTimeout(()=>{
         router('/login')
-      },5000)
+      },3000)
     }
   }
 
