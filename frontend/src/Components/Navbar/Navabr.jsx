@@ -55,7 +55,7 @@ export const Navbar = (isActive) => {
                         <div>
                           <Link to='/'>Home</Link>
                         </div>
-                        <div>
+                        <div onClick={handleScheduleClick }>
                           <Link to='scheduleTime'>Schedule Time</Link>
                         </div>
                         <div>

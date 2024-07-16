@@ -5,8 +5,8 @@ import loadingimg from './../project-image/loadingimg.jpeg'
 
 const ScheduleTime = () => {
   const [time, setTime] = useState([]);
-  console.log(time, "81");
-  console.log(process.env.REACT_APP_SERVER_DOMAIN);
+  // console.log(time, "81");
+  // console.log(process.env.REACT_APP_SERVER_DOMAIN);
 
   async function fetchTime() {
     try {
