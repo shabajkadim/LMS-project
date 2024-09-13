@@ -8,6 +8,7 @@ export const Navbar = (isActive) => {
   const { state, LOGOUT } = useContext(AuthContext);
   // console.log(state,"stater");
   const [showProfile, setShowProfile] = useState(false);
+  
   const [showMenu,setShowMenu]=useState(false)
   
   const router=useNavigate()
